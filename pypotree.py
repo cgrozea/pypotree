@@ -134,5 +134,5 @@ def display_cloud_colab(xyz):
 	import IPython
 
 	# return IPython.display.HTML(newtext)
-	return IPython.display.HTML(f'<a href="{pointcloudpath}" target="jhub_pointcloud"> Click here to open the point cloud in a new window</a><br/>')
+	return pointcloudpath, IPython.display.HTML(f'<a href="{pointcloudpath}" target="jhub_pointcloud"> Click here to open the point cloud in a new window</a><br/>')
  
