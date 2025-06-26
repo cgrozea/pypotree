@@ -8,7 +8,8 @@ Module to insert potree in jupyter notebooks and colab
 Copyright (C) 2019, Gabriele Facciolo <gfacciol@gmail.com>
 """
 
-from os import path,env
+from os import path,environ
+
 BIN = path.dirname(__file__)+'/bin'
 
 
@@ -118,7 +119,7 @@ def display_cloud_colab(xyz):
 
 	text = open('point_clouds/{}.html'.format(xyz) ).read()
 
-	pointcloudpath='{prefix}/proxy/{port}/point_clouds/pointclouds/{xyz}'.format(port=port, xyz=xyz,prefix=os.env["JUPYTERHUB_SERVICE_PREFIX"])
+	pointcloudpath='{prefix}/proxy/{port}/point_clouds/pointclouds/{xyz}'.format(port=port, xyz=xyz,prefix=environ["JUPYTERHUB_SERVICE_PREFIX"])
 
 	print (pointcloudpath)
 
