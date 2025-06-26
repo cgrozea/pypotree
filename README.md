@@ -1,3 +1,5 @@
+-- this is a simple adaptation that should produce the correct URLs for JupyterHub instead of collab --
+
 # PyPotree (potree for jupyter notebooks and colab)
 
 Allows to insert potree cells into jupyter and colab notebooks
