@@ -119,7 +119,7 @@ def display_cloud_colab(xyz):
 
 	text = open('point_clouds/{}.html'.format(xyz) ).read()
 
-	pointcloudpath='{prefix}/proxy/{port}/point_clouds/pointclouds/{xyz}'.format(port=port, xyz=xyz,prefix=environ["JUPYTERHUB_SERVICE_PREFIX"])
+	pointcloudpath='{prefix}/proxy/{port}/point_clouds/{xyz}.html'.format(port=port, xyz=xyz,prefix=environ["JUPYTERHUB_SERVICE_PREFIX"])
 
 	print (pointcloudpath)
 
