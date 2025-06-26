@@ -8,7 +8,7 @@ Module to insert potree in jupyter notebooks and colab
 Copyright (C) 2019, Gabriele Facciolo <gfacciol@gmail.com>
 """
 
-from os import path
+from os import path,env
 BIN = path.dirname(__file__)+'/bin'
 
 
@@ -118,19 +118,20 @@ def display_cloud_colab(xyz):
 
 	text = open('point_clouds/{}.html'.format(xyz) ).read()
 
-	pointcloudpath='https://localhost:{port}/point_clouds/pointclouds/{xyz}'.format(port=port, xyz=xyz)
+	pointcloudpath='{prefix}/proxy/{port}/point_clouds/pointclouds/{xyz}'.format(port=port, xyz=xyz,prefix=os.env["JUPYTERHUB_SERVICE_PREFIX"])
 
 	print (pointcloudpath)
 
-	newtext = text.replace('src="', 'src="https://localhost:{port}/point_clouds/'.format(port=port))
-	newtext = newtext.replace('href="', 'href="https://localhost:{port}/point_clouds/'.format(port=port))
-	#newtext = newtext.replace('"pointclouds/', '"https://localhost:{port}/pointclouds/'.format(port=port))
-	newtext = newtext.replace('pointclouds/{}'.format(xyz), pointcloudpath)
+	# newtext = text.replace('src="', 'src="https://localhost:{port}/point_clouds/'.format(port=port))
+	# newtext = newtext.replace('href="', 'href="https://localhost:{port}/point_clouds/'.format(port=port))
+	# #newtext = newtext.replace('"pointclouds/', '"https://localhost:{port}/pointclouds/'.format(port=port))
+	# newtext = newtext.replace('pointclouds/{}'.format(xyz), pointcloudpath)
 
-	newtext = newtext.replace('width: 100%; height: 100%;', 'width: 100%; height: 500px;')
-	newtext = newtext.replace('libs/potree/potree.js', 'libs/potree/potree.colab.js' )
+	# newtext = newtext.replace('width: 100%; height: 100%;', 'width: 100%; height: 500px;')
+	# newtext = newtext.replace('libs/potree/potree.js', 'libs/potree/potree.colab.js' )
 
-	import IPython
+	# import IPython
 
-	return IPython.display.HTML(newtext)
+	# return IPython.display.HTML(newtext)
+	return IPython.display.HTML(f'<a href="{pointcloudpath}" target="jhub_pointcloud"> Click here to open the point cloud in a new window</a><br/>')
  
