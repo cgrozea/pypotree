@@ -131,7 +131,7 @@ def display_cloud_colab(xyz):
 	# newtext = newtext.replace('width: 100%; height: 100%;', 'width: 100%; height: 500px;')
 	# newtext = newtext.replace('libs/potree/potree.js', 'libs/potree/potree.colab.js' )
 
-	# import IPython
+	import IPython
 
 	# return IPython.display.HTML(newtext)
 	return IPython.display.HTML(f'<a href="{pointcloudpath}" target="jhub_pointcloud"> Click here to open the point cloud in a new window</a><br/>')
