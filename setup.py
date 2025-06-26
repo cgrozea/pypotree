@@ -34,7 +34,7 @@ requirements = [ 'numpy',
 
 
 setup(name="pypotree",
-      version="1.0.5-jupyterhub",
+      version="1.0.5.post1",
       description='Potree visualization for jypyter notebooks',
       long_description=readme(),
       long_description_content_type='text/markdown',
